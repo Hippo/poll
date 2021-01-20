@@ -4,6 +4,7 @@ import org.springframework.stereotype.Repository;
 import rip.hippo.poll.dao.PollDao;
 import rip.hippo.poll.model.Answer;
 import rip.hippo.poll.model.Poll;
+import rip.hippo.poll.model.Vote;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,12 +26,12 @@ public final class OfflinePollDao implements PollDao {
     }
 
     @Override
-    public boolean vote(int pollId, int answerId) {
-        Poll poll = getPoll(pollId);
+    public boolean vote(Vote vote) {
+        Poll poll = getPoll(vote.getPollId());
         if (poll == null) {
             return false;
         }
-        Answer answer = poll.getAnswer(answerId);
+        Answer answer = poll.getAnswer(vote.getAnswerId());
         if (answer == null) {
             return false;
         }

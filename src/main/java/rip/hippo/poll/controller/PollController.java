@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import rip.hippo.poll.model.Poll;
+import rip.hippo.poll.model.Vote;
 import rip.hippo.poll.service.PollService;
 
 /**
@@ -36,4 +37,11 @@ public final class PollController {
         }
         return ResponseEntity.ok(poll);
     }
+
+    @PostMapping(path = "/vote")
+    public boolean vote(@RequestBody Vote vote) {
+        return pollService.getPollDao().vote(vote);
+    }
+
+
 }

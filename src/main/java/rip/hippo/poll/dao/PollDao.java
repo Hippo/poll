@@ -1,6 +1,7 @@
 package rip.hippo.poll.dao;
 
 import rip.hippo.poll.model.Poll;
+import rip.hippo.poll.model.Vote;
 
 /**
  * @author Hippo
@@ -9,6 +10,6 @@ import rip.hippo.poll.model.Poll;
  */
 public interface PollDao {
     int createPoll(Poll poll);
-    boolean vote(int pollId, int answerId);
+    boolean vote(Vote vote);
     Poll getPoll(int id);
 }
