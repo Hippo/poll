@@ -33,14 +33,14 @@ public final class PollController {
     public ResponseEntity<Poll> getPoll(@PathVariable("id") int id) {
         Poll poll = pollService.getPollDao().getPoll(id);
         if (poll == null) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
         return ResponseEntity.ok(poll);
     }
 
     @PostMapping(path = "/vote")
-    public boolean vote(@RequestBody Vote vote) {
-        return pollService.getPollDao().vote(vote);
+    public ResponseEntity<?> vote(@RequestBody Vote vote) {
+        return pollService.getPollDao().vote(vote) ? ResponseEntity.ok().build() : ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
     @DeleteMapping
