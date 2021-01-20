@@ -43,5 +43,13 @@ public final class PollController {
         return pollService.getPollDao().vote(vote);
     }
 
+    @DeleteMapping
+    public ResponseEntity<?> deleteMapping() {
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    }
 
+    @PutMapping
+    public ResponseEntity<?> putMapping() {
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    }
 }
