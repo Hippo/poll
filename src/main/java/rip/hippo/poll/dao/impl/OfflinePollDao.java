@@ -15,7 +15,7 @@ import java.util.List;
  * @since 1.0.0
  */
 @Repository("offlinePoll")
-public final class OfflinePollDao implements PollDao {
+public class OfflinePollDao implements PollDao {
 
     private final List<Poll> polls = new ArrayList<>();
 

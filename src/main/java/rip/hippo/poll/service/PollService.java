@@ -15,7 +15,7 @@ public final class PollService {
     private final PollDao pollDao;
 
     @Autowired
-    public PollService(@Qualifier("offlinePoll") PollDao pollDao) {
+    public PollService(@Qualifier("mongoPoll") PollDao pollDao) {
         this.pollDao = pollDao;
     }
 
